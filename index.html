@@ -84,6 +84,17 @@
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
 
+  /* profile photo in header */
+  .profile-photo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 2px solid rgba(27,42,74,0.06);
+    display: inline-block;
+  }
+
   /* ── HERO ── */
   .hero {
     min-height: 90vh;
@@ -367,7 +378,7 @@
   .edu-degree { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 0.3rem; }
   .edu-date { font-size: 12px; color: var(--muted); margin-bottom: 1rem; }
   .edu-courses { font-size: 13px; color: var(--muted); line-height: 1.75; }
-  .edu-badge { display: inline-block; background: var(--gold-light); color: var(--gold-dim); font-size: 11px; font-weight: 600; padding: 4px 14px; border-radius: 100px; margin-top: 1.25rem; letter-spacing: 0.03em; }
+  .edu-badge { display: inline-block; background: var(--gold-light); color: var(--gold-dim); font-size: 11px; font-weight: 600; padding: 4px 14px; border-radius: 100px; margin-top: 1.25rem; lette[...]
   .advantage-box {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 18px; padding: 1.75rem 2.25rem;
@@ -460,7 +471,7 @@
     .lang-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
     nav { padding: 0 1.5rem; }
     .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem; gap: 1.25rem; z-index: 200; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem;}
     .hamburger { display: flex; }
     .container { padding: 0 1.5rem; }
     section { padding: 4rem 0; }
@@ -481,6 +492,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
+  <img src="assets/images/profile.jpg" alt="Profile photo" class="profile-photo">
   <a href="#home" class="nav-logo">D<span>.</span>Solomon</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
@@ -546,9 +558,9 @@
     <div class="section-title">Building tech that<br>matters <span class="gold">locally</span></div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>I'm a passionate Computer Science student at Unity University and Economics student at Rift Valley University — a dual-degree combination that gives me a rare edge: I understand both the code and the business logic behind it.</p>
-        <p>My work focuses on creating impactful technologies for education, fintech, and resource management in Ethiopia. I don't just build apps — I architect ecosystems that solve real problems for real people.</p>
-        <p>From multilingual Telegram bots delivering Ethiopian curriculum content to Super App platforms with Telebirr and Chapa payment integrations, every project is grounded in local context and built to global standards.</p>
+        <p>I'm a passionate Computer Science student at Unity University and Economics student at Rift Valley University — a dual-degree combination that gives me a rare edge: I understand both[...]
+        <p>My work focuses on creating impactful technologies for education, fintech, and resource management in Ethiopia. I don't just build apps — I architect ecosystems that solve real probl[...]
+        <p>From multilingual Telegram bots delivering Ethiopian curriculum content to Super App platforms with Telebirr and Chapa payment integrations, every project is grounded in local context [...]
       </div>
       <div class="highlight-box">
         <h4>What sets me apart</h4>
@@ -655,7 +667,7 @@
           <p>Multi-module ecosystem platform</p>
         </div>
         <div class="project-body">
-          <p class="project-desc">A comprehensive Super App integrating a multi-vendor marketplace, savings modules, and a health platform into one cohesive mobile experience — architected for scale across East African markets.</p>
+          <p class="project-desc">A comprehensive Super App integrating a multi-vendor marketplace, savings modules, and a health platform into one cohesive mobile experience — architected for [...]
           <div class="tech-stack">
             <span class="tech">Java</span><span class="tech">Node.js</span>
             <span class="tech">Firebase</span><span class="tech">Android SDK</span><span class="tech">Telebirr</span>
@@ -674,7 +686,7 @@
           <p>Multi-vendor e-commerce & logistics</p>
         </div>
         <div class="project-body">
-          <p class="project-desc">Full-stack multi-vendor e-commerce platform with integrated logistics, real-time order tracking, and localized checkout via Telebirr and Chapa — enabling complete merchant commerce.</p>
+          <p class="project-desc">Full-stack multi-vendor e-commerce platform with integrated logistics, real-time order tracking, and localized checkout via Telebirr and Chapa — enabling compl[...]
           <div class="tech-stack">
             <span class="tech">JavaScript</span><span class="tech">Express.js</span>
             <span class="tech">Chapa</span><span class="tech">Telebirr</span><span class="tech">SQL</span>
@@ -693,7 +705,7 @@
           <p>Multilingual educational Telegram bot</p>
         </div>
         <div class="project-body">
-          <p class="project-desc">Educational Telegram bot delivering Ethiopian curriculum content in six languages with interactive quizzes and progress tracking — making quality education accessible for every student nationwide.</p>
+          <p class="project-desc">Educational Telegram bot delivering Ethiopian curriculum content in six languages with interactive quizzes and progress tracking — making quality education acc[...]
           <div class="tech-stack">
             <span class="tech">Python</span><span class="tech">Telegram API</span>
             <span class="tech">Google Drive API</span><span class="tech">JSON</span>
@@ -713,7 +725,7 @@
           <p>Groundwater monitoring system</p>
         </div>
         <div class="project-body">
-          <p class="project-desc">Digital platform for monitoring groundwater usage with QR code validation and real-time analytics, preventing resource misuse and supporting sustainable water management in local communities.</p>
+          <p class="project-desc">Digital platform for monitoring groundwater usage with QR code validation and real-time analytics, preventing resource misuse and supporting sustainable water ma[...]
           <div class="tech-stack">
             <span class="tech">Flutter</span><span class="tech">Firebase</span>
             <span class="tech">Google Maps API</span><span class="tech">QR Tech</span>
@@ -732,7 +744,7 @@
           <p>AI-driven fashion personalization</p>
         </div>
         <div class="project-body">
-          <p class="project-desc">Personalized styling application using user-profiling logic to deliver tailored fashion recommendations based on individual preferences and behavioral data — fully deployed and optimized for scale.</p>
+          <p class="project-desc">Personalized styling application using user-profiling logic to deliver tailored fashion recommendations based on individual preferences and behavioral data — f[...]
           <div class="tech-stack">
             <span class="tech">Node.js</span><span class="tech">Firebase</span>
             <span class="tech">JavaScript</span><span class="tech">Android SDK</span>
@@ -772,7 +784,7 @@
       <div class="adv-num">2×</div>
       <div>
         <div class="adv-title">Dual-Degree Strategic Advantage</div>
-        <div class="adv-desc">Computer Science + Economics means Dereje speaks both code and business — the rare developer who engineers solutions that are technically excellent and commercially smart. This combination is what makes fintech and Super App architecture a natural fit.</div>
+        <div class="adv-desc">Computer Science + Economics means Dereje speaks both code and business — the rare developer who engineers solutions that are technically excellent and commerciall[...]
       </div>
     </div>
   </div>
