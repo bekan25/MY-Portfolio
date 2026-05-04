@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dereje Solomon — Full-Stack Developer & Super App Architect based in Addis Ababa, Ethiopia. Fintech, e-commerce, and educational technology.">
+<meta name="keywords" content="Dereje Solomon, Full-Stack Developer, Ethiopia, Fintech, Super App, Telebirr, Chapa, Android, Node.js, Firebase">
+<meta property="og:title" content="Dereje Solomon — Full-Stack Developer">
+<meta property="og:description" content="Super App Architect & Fintech Developer based in Addis Ababa, Ethiopia.">
+<meta property="og:type" content="website">
+<title>Dereje Solomon — Full-Stack Developer & Super App Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #0f1c33;
+    --navy-mid: #253660;
+    --gold: #C9A84C;
+    --gold-light: #F5E6C0;
+    --gold-dim: #8a6e2c;
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE6;
+    --text: #1B2A4A;
+    --muted: #6B7280;
+    --border: rgba(27,42,74,0.12);
+    --tag-bg: #EEF0F5;
+    --tag-text: #3A4B6B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 19px;
+    color: var(--navy); letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500;
+    color: var(--muted); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-hire {
+    background: var(--navy); color: #fff !important;
+    padding: 8px 20px; border-radius: 8px;
+    font-size: 12px !important; font-weight: 500 !important;
+    text-decoration: none; transition: background 0.2s !important;
+    letter-spacing: 0.03em !important;
+  }
+  .nav-hire:hover { background: var(--navy-mid) !important; color: #fff !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 5rem;
+    align-items: center;
+    padding: 5rem 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-glow {
+    position: fixed; top: -100px; right: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-light); color: var(--gold-dim);
+    font-size: 11px; font-weight: 600;
+    padding: 7px 16px; border-radius: 100px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.7s ease both;
+  }
+  .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold); animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(48px, 6.5vw, 72px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -2.5px;
+    color: var(--navy);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero-roles {
+    margin-top: 1.25rem;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+  .role-tag {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--navy); font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+  .hero-desc {
+    margin-top: 1.75rem;
+    font-size: 17px; color: var(--muted);
+    max-width: 560px; line-height: 1.8;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-ctas {
+    margin-top: 2.75rem;
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+  .btn-primary {
+    background: var(--navy); color: #fff;
+    padding: 14px 30px; border-radius: 11px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(27,42,74,0.2); }
+  .btn-secondary {
+    background: transparent; color: var(--navy);
+    padding: 14px 30px; border-radius: 11px;
+    border: 1.5px solid rgba(27,42,74,0.3);
+    font-size: 14px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--navy); background: var(--navy); color: #fff; transform: translateY(-2px); }
+
+  /* ── HERO CARD ── */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    padding: 2.25rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.7s 0.2s ease both;
+    box-shadow: 0 24px 64px rgba(27,42,74,0.09);
+  }
+  .avatar {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy) 0%, #2d4a82 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 26px; font-weight: 800; color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+  .hero-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--navy);
+  }
+  .hero-card .sub { font-size: 13px; color: var(--muted); margin-top: 5px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+  .stat-box {
+    background: var(--surface2);
+    border-radius: 12px; padding: 14px 16px;
+  }
+  .stat-box .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px; font-weight: 800; color: var(--navy);
+  }
+  .stat-box .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 2px; }
+  .contact-links-card { display: flex; flex-direction: column; gap: 8px; }
+  .contact-link-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--text); text-decoration: none;
+    padding: 10px 12px; border-radius: 10px;
+    border: 1px solid var(--border); transition: all 0.2s;
+  }
+  .contact-link-item:hover { border-color: var(--gold); background: var(--gold-light); color: var(--gold-dim); }
+  .c-icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* ── SECTIONS WRAPPER ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  section { padding: 6rem 0; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-dim);
+    margin-bottom: 0.4rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800; color: var(--navy);
+    letter-spacing: -1.5px; line-height: 1.08;
+    margin-bottom: 3.5rem;
+  }
+  .section-title .gold { color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--surface); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-text p { color: var(--muted); font-size: 16px; line-height: 1.85; margin-bottom: 1.1rem; }
+  .highlight-box {
+    background: var(--navy);
+    border-radius: 22px; padding: 2.25rem;
+  }
+  .highlight-box h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .highlight-box p { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 1.5rem; }
+  .highlight-items { display: flex; flex-direction: column; gap: 10px; }
+  .highlight-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 13px; color: rgba(255,255,255,0.8);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px; padding: 1.75rem;
+    transition: all 0.25s;
+  }
+  .skill-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(27,42,74,0.08); }
+  .skill-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px;
+    margin-bottom: 1.1rem; letter-spacing: 0.02em;
+  }
+  .skill-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    background: var(--tag-bg); color: var(--tag-text);
+    font-size: 12px; font-weight: 500;
+    padding: 5px 12px; border-radius: 100px;
+  }
+  .tag.gold { background: var(--gold-light); color: var(--gold-dim); }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--surface); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 22px; overflow: hidden;
+    transition: all 0.25s; display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 24px 64px rgba(27,42,74,0.1); }
+  .project-top {
+    background: var(--navy);
+    padding: 2.25rem; position: relative; overflow: hidden;
+  }
+  .project-top::after {
+    content: '';
+    position: absolute; bottom: -30px; right: -30px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: rgba(201,168,76,0.08);
+  }
+  .project-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 64px; font-weight: 800;
+    color: rgba(201,168,76,0.12); line-height: 1;
+    position: absolute; top: 8px; right: 16px;
+    pointer-events: none;
+  }
+  .project-icon {
+    width: 54px; height: 54px; border-radius: 14px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 1.1rem;
+  }
+  .project-top h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 21px; font-weight: 700; color: #fff;
+    margin-bottom: 0.4rem; position: relative; z-index: 1;
+  }
+  .project-top p { font-size: 13px; color: rgba(255,255,255,0.55); position: relative; z-index: 1; }
+  .project-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; flex: 1; }
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 1.5rem; }
+  .tech {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    background: var(--navy); color: var(--gold);
+    padding: 4px 12px; border-radius: 100px;
+  }
+  .project-links { display: flex; gap: 10px; }
+  .proj-btn {
+    flex: 1; text-align: center;
+    padding: 11px; border-radius: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.03em;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .proj-btn.dark { background: var(--navy); color: var(--gold); }
+  .proj-btn.dark:hover { background: var(--navy-mid); }
+  .proj-btn.outline { border: 1.5px solid var(--navy); color: var(--navy); }
+  .proj-btn.outline:hover { background: var(--navy); color: #fff; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px; padding: 2.25rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .edu-card:hover { border-color: var(--gold); }
+  .edu-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--gold);
+    border-radius: 20px 20px 0 0;
+  }
+  .edu-univ { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.5rem; }
+  .edu-degree { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 0.3rem; }
+  .edu-date { font-size: 12px; color: var(--muted); margin-bottom: 1rem; }
+  .edu-courses { font-size: 13px; color: var(--muted); line-height: 1.75; }
+  .edu-badge { display: inline-block; background: var(--gold-light); color: var(--gold-dim); font-size: 11px; font-weight: 600; padding: 4px 14px; border-radius: 100px; margin-top: 1.25rem; letter-spacing: 0.03em; }
+  .advantage-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 18px; padding: 1.75rem 2.25rem;
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .adv-num { font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: var(--gold); flex-shrink: 0; }
+  .adv-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+  .adv-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ── LANGUAGES ── */
+  #languages { background: var(--surface); }
+  .lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .lang-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 18px; padding: 2rem;
+    text-align: center; transition: all 0.25s;
+  }
+  .lang-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .lang-flag { font-size: 36px; margin-bottom: 0.75rem; }
+  .lang-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .lang-level { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); padding: 7rem 0; }
+  #contact .section-label { color: rgba(201,168,76,0.55); }
+  #contact .section-title { color: #fff; }
+  .contact-desc { color: rgba(255,255,255,0.55); font-size: 16px; max-width: 520px; margin: -2rem 0 3.5rem; line-height: 1.85; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px; padding: 1.75rem;
+    text-decoration: none; transition: all 0.2s;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0;
+  }
+  .contact-card:hover { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+  .cc-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .cc-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .cc-val { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; word-break: break-all; }
+  .availability-row { display: flex; justify-content: center; }
+  .availability {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold); border-radius: 100px;
+    padding: 12px 28px; font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+  }
+  .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-deep);
+    padding: 2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; min-height: unset; }
+    .hero-card { display: none; }
+    .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .lang-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem; gap: 1.25rem; z-index: 200; }
+    .hamburger { display: flex; }
+    .container { padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .footer-links { display: none; }
+    footer { justify-content: center; text-align: center; }
+  }
+  @media (max-width: 560px) {
+    .lang-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .advantage-box { flex-direction: column; gap: 0.75rem; text-align: center; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-glow"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">D<span>.</span>Solomon</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="home" style="background: var(--bg);">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge"><div class="badge-dot"></div>Available for Opportunities</div>
+      <h1>Dereje<br><span class="gold">Solomon</span></h1>
+      <div class="hero-roles">
+        <span class="role-tag">Full-Stack Developer</span>
+        <span class="role-tag">Super App Architect</span>
+        <span class="role-tag">Fintech Integrations</span>
+        <span class="role-tag">AI Enthusiast</span>
+      </div>
+      <p class="hero-desc">Building impactful fintech and e-commerce platforms for Ethiopia and East Africa — where deep computer science meets economic understanding.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="avatar">DS</div>
+      <h3>Dereje Solomon</h3>
+      <p class="sub">Computer Science × Economics · Addis Ababa</p>
+      <hr class="divider">
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">5+</div><div class="lbl">Projects</div></div>
+        <div class="stat-box"><div class="num">2×</div><div class="lbl">Degrees</div></div>
+        <div class="stat-box"><div class="num">3</div><div class="lbl">Languages</div></div>
+        <div class="stat-box"><div class="num">∞</div><div class="lbl">Passion</div></div>
+      </div>
+      <div class="contact-links-card">
+        <a href="mailto:derejesolomon363@gmail.com" class="contact-link-item">
+          <div class="c-icon">@</div>derejesolomon363@gmail.com
+        </a>
+        <a href="https://t.me/bekan2025" class="contact-link-item" target="_blank" rel="noopener">
+          <div class="c-icon">TG</div>@bekan2025
+        </a>
+        <a href="https://github.com/bekan25" class="contact-link-item" target="_blank" rel="noopener">
+          <div class="c-icon">GH</div>github.com/bekan25
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Who I Am</div>
+    <div class="section-title">Building tech that<br>matters <span class="gold">locally</span></div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm a passionate Computer Science student at Unity University and Economics student at Rift Valley University — a dual-degree combination that gives me a rare edge: I understand both the code and the business logic behind it.</p>
+        <p>My work focuses on creating impactful technologies for education, fintech, and resource management in Ethiopia. I don't just build apps — I architect ecosystems that solve real problems for real people.</p>
+        <p>From multilingual Telegram bots delivering Ethiopian curriculum content to Super App platforms with Telebirr and Chapa payment integrations, every project is grounded in local context and built to global standards.</p>
+      </div>
+      <div class="highlight-box">
+        <h4>What sets me apart</h4>
+        <p>The intersection of technology and economics is where I operate.</p>
+        <div class="highlight-items">
+          <div class="highlight-item"><div class="hi-dot"></div>Super App architecture — multi-module, multi-vendor</div>
+          <div class="highlight-item"><div class="hi-dot"></div>Local payment rails — Telebirr & Chapa integration expert</div>
+          <div class="highlight-item"><div class="hi-dot"></div>Multilingual solutions — 6-language educational tech</div>
+          <div class="highlight-item"><div class="hi-dot"></div>CS × Economics dual-degree advantage</div>
+          <div class="highlight-item"><div class="hi-dot"></div>Real-world impact in East African markets</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <div class="section-title">Technical <span class="gold">Skills</span></div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">PL</div>
+        <h4>Programming Languages</h4>
+        <div class="tags">
+          <span class="tag gold">Java</span>
+          <span class="tag gold">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">C++</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">WD</div>
+        <h4>Web & Mobile</h4>
+        <div class="tags">
+          <span class="tag gold">Node.js</span>
+          <span class="tag gold">Express.js</span>
+          <span class="tag">React.js</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Android SDK</span>
+          <span class="tag">HTML5 / CSS3</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">DB</div>
+        <h4>Databases & Cloud</h4>
+        <div class="tags">
+          <span class="tag gold">Firebase</span>
+          <span class="tag gold">Firestore</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Real-time Sync</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">FT</div>
+        <h4>Fintech & Payments</h4>
+        <div class="tags">
+          <span class="tag gold">Telebirr API</span>
+          <span class="tag gold">Chapa Gateway</span>
+          <span class="tag">Kaffaltii Wallet</span>
+          <span class="tag">Payment Rails</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">AI</div>
+        <h4>AI & Integrations</h4>
+        <div class="tags">
+          <span class="tag gold">Telegram Bot API</span>
+          <span class="tag">Google Drive API</span>
+          <span class="tag">Google Maps API</span>
+          <span class="tag">AI Solutions</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">TO</div>
+        <h4>Tools & Workflow</h4>
+        <div class="tags">
+          <span class="tag gold">Git / GitHub</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Agile</span>
+          <span class="tag">Super App Design</span>
+          <span class="tag">Microservices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Work</div>
+    <div class="section-title">Featured <span class="gold">Projects</span></div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-num">01</div>
+          <div class="project-icon">🏙️</div>
+          <h3>Adwa Super App</h3>
+          <p>Multi-module ecosystem platform</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">A comprehensive Super App integrating a multi-vendor marketplace, savings modules, and a health platform into one cohesive mobile experience — architected for scale across East African markets.</p>
+          <div class="tech-stack">
+            <span class="tech">Java</span><span class="tech">Node.js</span>
+            <span class="tech">Firebase</span><span class="tech">Android SDK</span><span class="tech">Telebirr</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bekan25" target="_blank" rel="noopener" class="proj-btn dark">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-num">02</div>
+          <div class="project-icon">🛒</div>
+          <h3>BD Express</h3>
+          <p>Multi-vendor e-commerce & logistics</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Full-stack multi-vendor e-commerce platform with integrated logistics, real-time order tracking, and localized checkout via Telebirr and Chapa — enabling complete merchant commerce.</p>
+          <div class="tech-stack">
+            <span class="tech">JavaScript</span><span class="tech">Express.js</span>
+            <span class="tech">Chapa</span><span class="tech">Telebirr</span><span class="tech">SQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bekan25" target="_blank" rel="noopener" class="proj-btn dark">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-num">03</div>
+          <div class="project-icon">🤖</div>
+          <h3>Bekan Learning Bot</h3>
+          <p>Multilingual educational Telegram bot</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Educational Telegram bot delivering Ethiopian curriculum content in six languages with interactive quizzes and progress tracking — making quality education accessible for every student nationwide.</p>
+          <div class="tech-stack">
+            <span class="tech">Python</span><span class="tech">Telegram API</span>
+            <span class="tech">Google Drive API</span><span class="tech">JSON</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bekan2025/bekan-learning-bot" target="_blank" rel="noopener" class="proj-btn dark">GitHub ↗</a>
+            <a href="https://t.me/BekanLearningBot" target="_blank" rel="noopener" class="proj-btn outline">Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-num">04</div>
+          <div class="project-icon">💧</div>
+          <h3>Smart Water Management</h3>
+          <p>Groundwater monitoring system</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Digital platform for monitoring groundwater usage with QR code validation and real-time analytics, preventing resource misuse and supporting sustainable water management in local communities.</p>
+          <div class="tech-stack">
+            <span class="tech">Flutter</span><span class="tech">Firebase</span>
+            <span class="tech">Google Maps API</span><span class="tech">QR Tech</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bekan2025/smart-water-system" target="_blank" rel="noopener" class="proj-btn dark">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-num">05</div>
+          <div class="project-icon">👗</div>
+          <h3>ADAWA Personal Stylist</h3>
+          <p>AI-driven fashion personalization</p>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Personalized styling application using user-profiling logic to deliver tailored fashion recommendations based on individual preferences and behavioral data — fully deployed and optimized for scale.</p>
+          <div class="tech-stack">
+            <span class="tech">Node.js</span><span class="tech">Firebase</span>
+            <span class="tech">JavaScript</span><span class="tech">Android SDK</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/bekan25" target="_blank" rel="noopener" class="proj-btn dark">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Academic Background</div>
+    <div class="section-title">Education &<br><span class="gold">Credentials</span></div>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-univ">Unity University · Addis Ababa</div>
+        <div class="edu-degree">BSc Computer Science</div>
+        <div class="edu-date">September 2022 – Present</div>
+        <div class="edu-courses">Data Structures · Algorithms · Software Engineering · Database Systems · Mobile Development · AI Fundamentals</div>
+        <div class="edu-badge">In Progress</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-univ">Rift Valley University · Ethiopia</div>
+        <div class="edu-degree">BA Economics</div>
+        <div class="edu-date">September 2022 – Present</div>
+        <div class="edu-courses">Microeconomics · Macroeconomics · Financial Markets · Econometrics · Development Economics</div>
+        <div class="edu-badge">In Progress</div>
+      </div>
+    </div>
+    <div class="advantage-box reveal">
+      <div class="adv-num">2×</div>
+      <div>
+        <div class="adv-title">Dual-Degree Strategic Advantage</div>
+        <div class="adv-desc">Computer Science + Economics means Dereje speaks both code and business — the rare developer who engineers solutions that are technically excellent and commercially smart. This combination is what makes fintech and Super App architecture a natural fit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="container">
+    <div class="section-label">Communication</div>
+    <div class="section-title">Languages <span class="gold">Spoken</span></div>
+    <div class="lang-grid reveal">
+      <div class="lang-card">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">English</div>
+        <div class="lang-level">Professional Proficiency</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇪🇹</div>
+        <div class="lang-name">Amharic</div>
+        <div class="lang-level">Native · Full Proficiency</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🌍</div>
+        <div class="lang-name">Afaan Oromoo</div>
+        <div class="lang-level">Native · Full Proficiency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">Let's build something<br><span class="gold">great together</span></div>
+    <p class="contact-desc">Available for freelance projects, collaborations, and internships. Specializing in fintech, Super App architecture, and impactful technology for East Africa.</p>
+    <div class="contact-grid reveal">
+      <a href="mailto:derejesolomon363@gmail.com" class="contact-card">
+        <div class="cc-icon">@</div>
+        <div class="cc-label">Email</div>
+        <div class="cc-val">derejesolomon363@gmail.com</div>
+      </a>
+      <a href="tel:+251922481727" class="contact-card">
+        <div class="cc-icon">☎</div>
+        <div class="cc-label">Phone</div>
+        <div class="cc-val">+251 92 248 1727</div>
+      </a>
+      <a href="https://t.me/bekan2025" target="_blank" rel="noopener" class="contact-card">
+        <div class="cc-icon">TG</div>
+        <div class="cc-label">Telegram</div>
+        <div class="cc-val">@bekan2025</div>
+      </a>
+      <a href="https://wa.me/251922481727" target="_blank" rel="noopener" class="contact-card">
+        <div class="cc-icon">WA</div>
+        <div class="cc-label">WhatsApp</div>
+        <div class="cc-val">+251 92 248 1727</div>
+      </a>
+      <a href="https://github.com/bekan25" target="_blank" rel="noopener" class="contact-card">
+        <div class="cc-icon">GH</div>
+        <div class="cc-label">GitHub</div>
+        <div class="cc-val">github.com/bekan25</div>
+      </a>
+      <a href="https://www.linkedin.com/in/dereje-solomon-9a6230370" target="_blank" rel="noopener" class="contact-card">
+        <div class="cc-icon">in</div>
+        <div class="cc-label">LinkedIn</div>
+        <div class="cc-val">Dereje Solomon</div>
+      </a>
+    </div>
+    <div class="availability-row">
+      <div class="availability"><div class="avail-dot"></div>Open to new opportunities</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#home" class="footer-logo">D<span>.</span>Solomon</a>
+  <span class="footer-copy">© 2025 Dereje Solomon · Addis Ababa, Ethiopia</span>
+  <div class="footer-links">
+    <a href="https://github.com/bekan25" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/dereje-solomon-9a6230370" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://t.me/bekan2025" target="_blank" rel="noopener">Telegram</a>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('navLinks');
+    var ham = document.getElementById('hamburger');
+    if (!nav.contains(e.target) && !ham.contains(e.target)) {
+      nav.classList.remove('open');
+    }
+  });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
