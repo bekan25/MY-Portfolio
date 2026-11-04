@@ -1,5 +1,5 @@
 
-const CACHE="dereje-portfolio-v2";
+const CACHE="dereje-portfolio-v3";
 const CORE=["./","./index.html","./manifest.webmanifest","./assets/css/de-enhancements.css","./assets/js/de-enhancements.js","./assets/favicon.svg","./profile.jpg.jfif"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
