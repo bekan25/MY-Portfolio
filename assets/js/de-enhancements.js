@@ -145,6 +145,17 @@
     await Promise.allSettled(tasks);
   }
   loadGithub();
+  const githubRefresh=$("#githubRefresh");
+  githubRefresh?.addEventListener("click",async()=>{
+    if(githubRefresh.disabled)return;
+    githubRefresh.disabled=true;
+    githubRefresh.textContent="Refreshing…";
+    if(graphStatus)graphStatus.textContent="Checking GitHub activity…";
+    try{await loadGithub();}finally{
+      githubRefresh.disabled=false;
+      githubRefresh.textContent="Refresh data";
+    }
+  });
 
   const assistantToggle=$("#assistantToggle"), assistantPanel=$("#assistantPanel"), assistantClose=$("#assistantClose"), assistantForm=$("#assistantForm"), assistantInput=$("#assistantInput"), messages=$("#assistantMessages");
   const answers=[
