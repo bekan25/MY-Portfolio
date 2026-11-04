@@ -41,6 +41,15 @@
         ".contact-desc":"Pirojektoota freelance, tumsa fi internship irratti banaadha. Fintech, Super App architecture fi teeknooloojii Baha Afrikaaf bu'aa qabu irratti nan xiyyeeffadha.",
         ".cc-label":["Imeelii","Bilbila","Telegram","WhatsApp","GitHub","LinkedIn"],
         ".availability":"Carraa hojii haaraaf banaadha",
+        ".de-case-card > p":["Waltajjii addunyaa namoota walqunnamsiisu, uumuu, barachuu fi waliin hojjechuuf gargaaru.","Sirna barnootaa afaanota hedduu barattoota sadarkaa lammaffaa Itoophiyaa deeggaru.","Pirojektii gabaa dijitaalaa bitataa fi gurgurtaa salphisuuf ijaaramaa jiru."],
+        ".de-case-card summary":"Ijaarsa qoradhu",
+        ".de-case-details b":["Ijaarsa Sirnaa","Deetaa fi yeroo-dhugaa","Fuuldura Appii","Haala pirojektii","Bal'ina oomishaa","Injineringii","Kaayyoo dizaayinii","Xiyyeeffannoo","Haala hojii"],
+        ".de-case-details p":["Clean Architecture kan Domain, Application, Infrastructure fi API layers qabu; CQRS/MediatR hojii application qindeessuuf.","PostgreSQL EF Core, UUID fi JSONB; Redis cache; SignalR qunnamtii yeroo-dhugaa.","React, TypeScript, Tailwind CSS fi Node.js gateway/ASP.NET bridge.","Pirojektii misoomaa. Suuraan oomishaa fi demo uummataa mirkanaa'e yeroo argamu ni dabalama.","Barnoota sadarkaa 9–12 afaan Ingiliffaa, Afaan Oromoo fi Amaariffaan deeggaru.","Node.js backend, PostgreSQL fi Android Kotlin/Compose with Room offline-first.","Gahee fayyadamaa, qabiyyee afaanota hedduu fi barnoota interneetii muraasa keessatti itti fufuu.","Marketplace workflow, barbaacha oomishaa fi muuxannoo bitataa/gurgurtaa.","Ijaaramaa jira. Bal'inni implementation fi demo uummataa yeroo guddatu ni haaromfama."],
+        ".de-assistant-head b":"Gargaaraa Portfolio Dereje",
+        ".de-assistant-head small":"Deebii gabaabaa waa'ee pirojektootaa fi dandeettii",
+        ".de-assistant-bot":"Akkam! Waa'ee pirojektoota, teeknooloojii, barnootaa ykn quunnamtii Dereje na gaafadhu.",
+        ".de-assistant-suggestions button":["Pirojektoota","Teeknooloojii","Quunnamtii"],
+        ".de-assistant-note":"Gargaaraa portfolio keessaa · Tajaajila AI alaa ykn kuusaa odeeffannoo dhuunfaa hin fayyadamu",
         ".footer-copy":"© 2026 Dereje Solomon · Finfinnee, Itoophiyaa"
       },
       am:{
@@ -63,6 +72,15 @@
         ".contact-desc":"ለFreelance ፕሮጀክቶች፣ ትብብር እና internship ክፍት ነኝ። በፊንቴክ፣ Super App አወቃቀር እና ለምስራቅ አፍሪካ ጠቃሚ ቴክኖሎጂ ላይ እሰራለሁ።",
         ".cc-label":["ኢሜይል","ስልክ","Telegram","WhatsApp","GitHub","LinkedIn"],
         ".availability":"ለአዳዲስ የሥራ ዕድሎች ዝግጁ ነኝ",
+        ".de-case-card > p":["ሰዎችን ለመገናኘት፣ ለመፍጠር፣ ለመማር እና በጋራ ለመስራት የሚያገናኝ ዓለም አቀፍ መድረክ።","ለኢትዮጵያ የሁለተኛ ደረጃ ተማሪዎች ብዙ ቋንቋ የሚደግፍ የትምህርት ስርዓት።","ለገዢዎችና ሻጮች ቀላል የዲጂታል ገበያ ልምድ የሚያቀርብ በልማት ላይ ያለ ፕሮጀክት።"],
+        ".de-case-card summary":"አወቃቀሩን ይመልከቱ",
+        ".de-case-details b":["አወቃቀር","ዳታ እና በቅጽበት","Frontend","የፕሮጀክት ሁኔታ","የምርት ወሰን","ኢንጂነሪንግ","የዲዛይን ትኩረት","ትኩረት","ሁኔታ"],
+        ".de-case-details p":["Domain፣ Application፣ Infrastructure እና API ንብርብሮች ያሉት Clean Architecture፤ CQRS/MediatR ለapplication workflow።","PostgreSQL EF Core፣ UUID እና JSONB፤ Redis cache፤ SignalR ለቅጽበታዊ ግንኙነት።","React፣ TypeScript፣ Tailwind CSS እና Node.js gateway/ASP.NET bridge።","በልማት ላይ ያለ ፕሮጀክት። የምርት ምስሎችና የተረጋገጠ demo ሲኖር ይጨመራሉ።","ለ9–12 ክፍሎች በእንግሊዝኛ፣ በአፋን ኦሮሞ እና በአማርኛ የትምህርት ድጋፍ።","Node.js backend፣ PostgreSQL እና Android Kotlin/Compose with Room offline-first።","የተጠቃሚ ሚናዎች፣ ብዙ ቋንቋ ይዘት እና ያለ በይነመረብ መማርን መቀጠል።","የገበያ ሂደቶች፣ የምርት ፍለጋ እና የገዢ/ሻጭ ተሞክሮ።","በልማት ላይ ነው። የimplementation ዝርዝሮችና demo ሲገኙ ይዘምናሉ።"],
+        ".de-assistant-head b":"የDereje Portfolio ረዳት",
+        ".de-assistant-head small":"ስለ ፕሮጀክቶችና ክህሎቶች ፈጣን መልሶች",
+        ".de-assistant-bot":"ሰላም! ስለ ፕሮጀክቶች፣ ቴክኖሎጂዎች፣ ትምህርት ወይም የDereje አድራሻ ይጠይቁኝ።",
+        ".de-assistant-suggestions button":["ፕሮጀክቶች","ቴክኖሎጂ","አድራሻ"],
+        ".de-assistant-note":"በPortfolio ውስጥ የሚሰራ ረዳት · ውጫዊ AI ወይም የግል ዳታ አይጠቀምም",
         ".footer-copy":"© 2026 Dereje Solomon · አዲስ አበባ፣ ኢትዮጵያ"
       }
     };
