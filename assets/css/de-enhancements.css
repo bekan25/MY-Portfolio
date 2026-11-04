@@ -15,3 +15,6 @@ button,input{font:inherit}.hamburger{border:0;background:transparent}
 .de-language-switch{display:flex;align-items:center;gap:3px;margin-left:14px;padding:4px;border:1px solid var(--de-line);border-radius:99px;background:#fff;flex-shrink:0}.de-language-switch button{border:0;background:transparent;color:#697386;padding:5px 8px;border-radius:99px;font-size:10px;font-weight:700;cursor:pointer}.de-language-switch button[aria-pressed=true]{background:#1b2a4a;color:#f3d98f}
 @media(max-width:900px){.de-language-switch{margin-left:0;margin-right:8px}.nav-logo{margin-right:auto}}
 @media(max-width:560px){.de-language-switch{gap:0;padding:3px}.de-language-switch button{padding:5px 6px;font-size:9px}}
+
+/* GitHub activity controls */
+.de-github-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.de-refresh-btn{border:1px solid var(--de-line);border-radius:99px;background:#f7f6f2;color:#35425c;padding:6px 10px;font-size:10px;font-weight:700;cursor:pointer}.de-refresh-btn:hover:not(:disabled){border-color:#c9a84c;background:#fff}.de-refresh-btn:disabled{opacity:.55;cursor:wait}
