@@ -485,6 +485,12 @@
     .projects-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2A4A">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/de-enhancements.css">
 </head>
 <body>
 
@@ -492,7 +498,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <img src="assets/images/profile.jpg" alt="Profile photo" class="profile-photo">
+  <img src="profile.jpg.jfif" alt="Profile photo" class="profile-photo">
   <a href="#home" class="nav-logo">D<span>.</span>Solomon</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
@@ -501,9 +507,9 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#contact" class="nav-hire">Hire Me</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -815,6 +821,62 @@
   </div>
 </section>
 
+
+<!-- DEVELOPER TOOLKIT -->
+<section id="developer-toolkit" class="de-toolkit">
+  <div class="container">
+    <div class="section-label" data-i18n="toolkitLabel">Developer Toolkit</div>
+    <div class="section-title" data-i18n="toolkitTitle">Explore my <span class="gold">workspace</span></div>
+    <div class="de-tool-grid">
+      <article class="de-panel de-terminal-panel">
+        <div class="de-panel-head"><div><span class="de-kicker">01 / INTERACTIVE</span><h3 data-i18n="terminalTitle">Developer Terminal</h3></div><span class="de-live-dot">LIVE</span></div>
+        <p class="de-panel-copy" data-i18n="terminalCopy">Try a command to explore my skills, projects and contact details.</p>
+        <div class="de-terminal" role="region" aria-label="Interactive developer terminal">
+          <div class="de-terminal-bar"><span></span><span></span><span></span><b>dereje@portfolio:~</b></div>
+          <div class="de-terminal-output" id="terminalOutput" aria-live="polite"><p>Welcome. Type <b>help</b> to see available commands.</p></div>
+          <form id="terminalForm" class="de-terminal-form"><label for="terminalInput">$</label><input id="terminalInput" autocomplete="off" spellcheck="false" placeholder="help / about / skills / projects / contact"><button type="submit" aria-label="Run command">↵</button></form>
+        </div>
+        <div class="de-command-chips"><button type="button" data-command="help">help</button><button type="button" data-command="skills">skills</button><button type="button" data-command="projects">projects</button><button type="button" data-command="contact">contact</button></div>
+      </article>
+      <article class="de-panel de-github-panel">
+        <div class="de-panel-head"><div><span class="de-kicker">02 / OPEN SOURCE</span><h3 data-i18n="githubTitle">GitHub Activity</h3></div><a href="https://github.com/bekan25" target="_blank" rel="noopener noreferrer" class="de-mini-link">GitHub ↗</a></div>
+        <div class="de-github-stats" id="githubStats"><div class="de-stat"><strong>—</strong><span>Public repos</span></div><div class="de-stat"><strong>—</strong><span>Followers</span></div><div class="de-stat"><strong>—</strong><span>Following</span></div></div>
+        <div class="de-graph-heading"><span data-i18n="contributions">Contribution activity</span><small id="githubGraphStatus">Loading public activity…</small></div>
+        <div class="de-contribution-wrap"><div class="de-months" id="githubMonths"></div><div class="de-contribution" id="githubContribution" aria-label="GitHub contribution activity"></div></div>
+        <div class="de-legend"><span>Less</span><i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>More</span></div>
+        <div class="de-recent-title" data-i18n="recentRepos">Recently updated repositories</div><div id="githubRepos" class="de-repo-list"><p class="de-muted">Public repository data will appear here when GitHub is reachable.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT CASE STUDIES -->
+<section id="case-studies" class="de-case-section">
+  <div class="container">
+    <div class="section-label" data-i18n="caseLabel">Beyond the screenshots</div>
+    <div class="section-title" data-i18n="caseTitle">Project <span class="gold">case studies</span></div>
+    <p class="de-section-intro" data-i18n="caseIntro">A closer look at the problem, architecture and engineering decisions behind selected work.</p>
+    <div class="de-case-grid">
+      <article class="de-case-card"><span class="de-case-index">CASE / 01</span><span class="de-case-icon">◈</span><h3>NEXORAS</h3><p>A global action network connecting people to create, learn, collaborate and act.</p><div class="de-case-tags"><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>SignalR</span></div><details><summary>Explore architecture</summary><div class="de-case-details"><b>Architecture</b><p>Clean Architecture with Domain, Application, Infrastructure and API layers; CQRS/MediatR for application workflows.</p><b>Data & realtime</b><p>PostgreSQL with EF Core, UUID and JSONB; Redis for caching; SignalR for realtime communication.</p><b>Frontend</b><p>React, TypeScript, Tailwind CSS and a Node.js gateway/ASP.NET bridge.</p><b>Project status</b><p>Development project. Product screenshots and a verified public demo can be added when available.</p></div></details></article>
+      <article class="de-case-card"><span class="de-case-index">CASE / 02</span><span class="de-case-icon">⌘</span><h3>BARNOOTAAI360</h3><p>Multilingual learning ecosystem for Ethiopian secondary-school students.</p><div class="de-case-tags"><span>AI</span><span>Node.js</span><span>PostgreSQL</span><span>Android</span></div><details><summary>Explore architecture</summary><div class="de-case-details"><b>Product scope</b><p>Grades 9–12 learning support across core subjects, with English, Afaan Oromoo and Amharic language support.</p><b>Engineering</b><p>Node.js backend, PostgreSQL/data-store workflows and Android Kotlin/Compose with Room for offline-first learning.</p><b>Design focus</b><p>Role-based access, multilingual content and learning continuity with limited connectivity.</p><b>Project status</b><p>Development project. Public screenshots and verified live demo are not yet attached.</p></div></details></article>
+      <article class="de-case-card"><span class="de-case-index">CASE / 03</span><span class="de-case-icon">▧</span><h3>MERKATO</h3><p>Marketplace project focused on a clear and accessible digital shopping experience.</p><div class="de-case-tags"><span>Full-Stack</span><span>E-commerce</span><span>Product UX</span></div><details><summary>Explore project</summary><div class="de-case-details"><b>Focus</b><p>Marketplace workflows, product discovery and buyer/seller experience.</p><b>Status</b><p>Building. Implementation details and public demo will be updated as the project progresses.</p></div></details></article>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO ASSISTANT -->
+<div class="de-assistant" id="deAssistant">
+  <button class="de-assistant-toggle" id="assistantToggle" type="button" aria-expanded="false" aria-controls="assistantPanel"><span class="de-assistant-spark">✳</span><span data-i18n="askAssistant">Ask about my work</span></button>
+  <section class="de-assistant-panel" id="assistantPanel" aria-label="Portfolio assistant" hidden>
+    <div class="de-assistant-head"><div><b>Dereje's Portfolio Assistant</b><small>Quick answers about projects and skills</small></div><button id="assistantClose" type="button" aria-label="Close assistant">×</button></div>
+    <div class="de-assistant-messages" id="assistantMessages" aria-live="polite"><p class="de-assistant-bot">Hi! Ask me about projects, technologies, education or how to contact Dereje.</p></div>
+    <div class="de-assistant-suggestions"><button type="button" data-ask="What projects has Dereje built?">Projects</button><button type="button" data-ask="What technologies does he use?">Tech stack</button><button type="button" data-ask="How can I contact Dereje?">Contact</button></div>
+    <form id="assistantForm" class="de-assistant-form"><input id="assistantInput" maxlength="240" placeholder="Ask a question…" aria-label="Ask the portfolio assistant"><button type="submit" aria-label="Send question">➤</button></form>
+    <small class="de-assistant-note">Local portfolio helper · No external AI service or personal data collection</small>
+  </section>
+</div>
+<a class="de-back-top" href="#home" aria-label="Back to top">↑</a>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -888,5 +950,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 </script>
+<script src="assets/js/de-enhancements.js" defer></script>
 </body>
 </html>
