@@ -91,15 +91,32 @@
 
   const terminalForm=$("#terminalForm"), terminalInput=$("#terminalInput"), terminalOutput=$("#terminalOutput");
   const commands={
-    help:"Available commands: about, skills, projects, education, contact, github, clear.",
+    help:"Commands: about, skills, projects, education, contact, github, linkedin, toolkit, cases, home, clear. You can also use open projects.",
     about:"Dereje Solomon — Full-Stack Developer and Computer Science student focused on practical digital products.",
-    skills:"Core stack: React, TypeScript, JavaScript, Node.js, ASP.NET Core, C#, PostgreSQL, Firebase, Python, Java, C++ and Flutter.",
-    projects:"Featured work: NEXORAS (global action network), BARNOOTAAI360 (multilingual learning ecosystem), MERKATO (marketplace in progress), plus other repositories on GitHub.",
-    education:"Computer Science — Unity University. Additional learning and project work across software engineering, databases, web and mobile development.",
-    contact:"Email: derejesolomon363@gmail.com | WhatsApp: +251 922 481 727 | GitHub: github.com/bekan25 | LinkedIn: dereje-solomon-9a6230370",
-    github:"Opening GitHub profile: https://github.com/bekan25"
+    skills:"React, TypeScript, JavaScript, Node.js, ASP.NET Core, C#, PostgreSQL, Firebase, Python, Java, C++ and Flutter.",
+    projects:"NEXORAS, BARNOOTAAI360, MERKATO and selected software projects. Use open projects to jump to the showcase.",
+    education:"Computer Science — Unity University. Explore the Education section for academic details.",
+    contact:"Email: derejesolomon363@gmail.com | WhatsApp: +251 922 481 727 | GitHub: github.com/bekan25.",
+    github:"Opening GitHub profile.",
+    linkedin:"Opening LinkedIn profile.",
+    toolkit:"Opening the Developer Toolkit section.",
+    cases:"Opening Project Case Studies.",
+    home:"Returning to the top of the portfolio."
   };
-  function runCommand(raw){const cmd=raw.trim().toLowerCase().split(/\s+/)[0];if(!cmd)return;if(cmd==="clear"){terminalOutput.innerHTML="";return;}const answer=commands[cmd]||"Command not found. Type help to see available commands.";const line=document.createElement("p");line.className="de-command";line.textContent="$ "+raw;const result=document.createElement("p");result.className="de-result";result.textContent=answer;terminalOutput.append(line,result);terminalOutput.scrollTop=terminalOutput.scrollHeight;if(cmd==="github")window.open("https://github.com/bekan25","_blank","noopener");}
+  const commandTargets={about:"#about",skills:"#skills",projects:"#projects",education:"#education",contact:"#contact",toolkit:"#developer-toolkit",cases:"#case-studies",home:"#home"};
+  function runCommand(raw){
+    const input=raw.trim();if(!input)return;
+    const parts=input.toLowerCase().split(/\s+/);const cmd=parts[0];const action=parts[1];
+    if(cmd==="clear"){terminalOutput.replaceChildren();return;}
+    const target=cmd==="open"?commandTargets[action]:commandTargets[cmd];
+    const answer=cmd==="open"?(target?"Opening "+action+" section.":"Unknown section. Try: projects, skills, toolkit, cases, contact."):commands[cmd]||"Command not found. Type help to see available commands.";
+    const line=document.createElement("p");line.className="de-command";line.textContent="$ "+input;
+    const result=document.createElement("p");result.className="de-result";result.textContent=answer;
+    terminalOutput.append(line,result);terminalOutput.scrollTop=terminalOutput.scrollHeight;
+    if(target)document.querySelector(target)?.scrollIntoView({behavior:"smooth",block:"start"});
+    if(cmd==="github")window.open("https://github.com/bekan25","_blank","noopener,noreferrer");
+    if(cmd==="linkedin")window.open("https://www.linkedin.com/in/dereje-solomon-9a6230370","_blank","noopener,noreferrer");
+  }
   terminalForm?.addEventListener("submit",e=>{e.preventDefault();runCommand(terminalInput.value);terminalInput.value="";});
   $$(".de-command-chips button").forEach(b=>b.addEventListener("click",()=>runCommand(b.dataset.command)));
 
