@@ -101,11 +101,11 @@
     try{localStorage.setItem("de-portfolio-lang",lang);}catch{}
     $$(".de-language-switch button").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
   };
-  const languageSwitch=document.createElement("div"); languageSwitch.className="de-language-switch"; languageSwitch.setAttribute("aria-label","Choose website language");
+  const languageSwitch=document.createElement("div"); languageSwitch.className="de-language-switch"; languageSwitch.setAttribute("aria-label","Choose website language"); languageSwitch.setAttribute("role","group");
   languageSwitch.innerHTML='<button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="om" aria-pressed="false">OM</button><button type="button" data-lang="am" aria-pressed="false">አማ</button>';
   const nav=$("#navbar"); if(nav) nav.append(languageSwitch);
   languageSwitch.addEventListener("click",e=>{const b=e.target.closest("button[data-lang]");if(b)setLanguage(b.dataset.lang);});
-  let initial="en";try{initial=localStorage.getItem("de-portfolio-lang")||"en";}catch{} setLanguage(initial);
+  let initial="en";try{const savedLanguage=localStorage.getItem("de-portfolio-lang");if(["en","om","am"].includes(savedLanguage))initial=savedLanguage;}catch{} setLanguage(initial);
 
   const terminalForm=$("#terminalForm"), terminalInput=$("#terminalInput"), terminalOutput=$("#terminalOutput");
   const commands={
