@@ -17,6 +17,57 @@
     t.nav.forEach((v,i)=>{ if(nav[i]) nav[i].textContent=v; });
     const map = {".hero-badge":t.badge,".hero-desc":t.heroDesc,".hero-ctas .btn-primary":t.viewProjects,".hero-ctas .btn-secondary":t.getInTouch,"#about .section-label":t.aboutLabel,"#about .section-title":t.aboutTitle,"#skills .section-label":t.skillsLabel,"#skills .section-title":t.skillsTitle,"#projects .section-label":t.projectsLabel,"#projects .section-title":t.projectsTitle,"#education .section-label":t.educationLabel,"#education .section-title":t.educationTitle,"#languages .section-label":t.languagesLabel,"#languages .section-title":t.languagesTitle,"#contact .section-label":t.contactLabel,"#contact .section-title":t.contactTitle,"[data-i18n=toolkitLabel]":t.toolkitLabel,"[data-i18n=toolkitTitle]":t.toolkitTitle,"[data-i18n=terminalTitle]":t.terminalTitle,"[data-i18n=terminalCopy]":t.terminalCopy,"[data-i18n=githubTitle]":t.githubTitle,"[data-i18n=contributions]":t.contributions,"[data-i18n=recentRepos]":t.recentRepos,"[data-i18n=caseLabel]":t.caseLabel,"[data-i18n=caseTitle]":t.caseTitle,"[data-i18n=caseIntro]":t.caseIntro,"[data-i18n=askAssistant]":t.askAssistant};
     Object.entries(map).forEach(([selector,value])=>{const el=$(selector);if(el)el.innerHTML=value;});
+
+    const extraTranslations = {
+      om:{
+        ".hero-roles .role-tag":["Full-Stack Developer","Super App Architect","Fintech Integration","AI irratti fedhii"],
+        ".about-text p":["Ani barataa Computer Science Unity University keessatti baradhu; teeknooloojii fayyadamuun rakkoolee dhugaa furuuf fedhii qaba.","Hojii koo irratti furmaata barnootaa, fintech fi bulchiinsa qabeenyaa Itoophiyaa keessatti bu'aa qaban ijaaruu irratti xiyyeeffadha.","Pirojektoonni koo haala naannoo fi fedhii fayyadamtootaa hubachuun kan qophaa'anidha; yaada gara furmaata hojiirra oolu jijjiiruuf nan hojjedha."],
+        ".highlight-box h4":"Waan adda na taasisu",
+        ".highlight-box>p":"Teeknooloojii fi dinagdee walitti fiduun furmaata ijaaruu.",
+        ".highlight-item":["Ijaarsa Super App — module hedduu fi tajaajila adda addaa","Kaffaltii dijitaalaa naannoo — Telebirr fi Chapa","Furmaata barnootaa afaanota hedduu deeggaru","Beekumsa Computer Science fi dinagdee walitti fiduu","Gabaa Baha Afrikaa irratti xiyyeeffannoo"],
+        ".skill-card h4":["Afaanota Sagantaa","Web fi Mobile","Kuusdeetaa fi Cloud","Fintech fi Kaffaltii","AI fi Walitti Hidhamiinsa","Meeshaalee fi Adeemsa Hojii"],
+        ".project-top h3":["Adwa Super App","BD Express","Bekan Learning Bot","Smart Water Management","ADAWA Personal Stylist"],
+        ".project-top p":["Waltajjii tajaajila hedduu","E-commerce fi logistics","Telegram bot barnootaa afaanota hedduu","Sirna hordoffii bishaanii","Gorsa uffannaa dhuunfaa"],
+        ".project-desc":["Super App keessatti marketplace, savings fi health modules walitti fiduuf qophaa'e.","Waltajjii daldalaa online daldaltoota hedduu, hordoffii ajajaa fi kaffaltii naannoo deeggaruuf qophaa'e.","Bot Telegram barnoota Itoophiyaa afaanota hedduun dhiyeessu, gaaffilee shaakalaa fi hordoffii barnootaa qabu.","Sirna dijitaalaa itti fayyadama bishaan lafa keessaa QR validation fi analytics fayyadamuun hordofu.","App gorsa uffannaa fedhii fi filannoo fayyadamaa irratti hundaa'e."],
+        ".edu-univ":["Unity University · Finfinnee","Rift Valley University · Itoophiyaa"],
+        ".edu-degree":["BSc Computer Science","BA Economics"],
+        ".edu-date":["Fulbaana 2022 – Amma","Fulbaana 2022 – Amma"],
+        ".edu-courses":["Data Structures · Algorithms · Software Engineering · Database Systems · Mobile Development · AI Fundamentals","Microeconomics · Macroeconomics · Financial Markets · Econometrics · Development Economics"],
+        ".edu-badge":["Barachaa jira","Barachaa jira"],
+        ".lang-name":["English","Amharic","Afaan Oromoo"],
+        ".lang-level":["Sadarkaa hojii","Afaan dhalootaa · Guutuu","Afaan dhalootaa · Guutuu"],
+        ".contact-desc":"Pirojektoota freelance, tumsa fi internship irratti banaadha. Fintech, Super App architecture fi teeknooloojii Baha Afrikaaf bu'aa qabu irratti nan xiyyeeffadha.",
+        ".cc-label":["Imeelii","Bilbila","Telegram","WhatsApp","GitHub","LinkedIn"],
+        ".availability":"Carraa hojii haaraaf banaadha",
+        ".footer-copy":"© 2026 Dereje Solomon · Finfinnee, Itoophiyaa"
+      },
+      am:{
+        ".hero-roles .role-tag":["Full-Stack Developer","የSuper App አርክቴክት","የፊንቴክ ውህደቶች","ለAI ፍላጎት አለኝ"],
+        ".about-text p":["በUnity University የኮምፒውተር ሳይንስ ተማሪ ሲሆን ቴክኖሎጂን በመጠቀም እውነተኛ ችግሮችን ለመፍታት እጥራለሁ።","ትኩረቴ በኢትዮጵያ የትምህርት፣ የፊንቴክ እና የሀብት አስተዳደር መፍትሄዎችን መገንባት ላይ ነው።","ፕሮጀክቶቼ የአካባቢውን አውድና የተጠቃሚዎችን ፍላጎት በመረዳት የተግባር መፍትሄዎችን ያቀርባሉ።"],
+        ".highlight-box h4":"የሚለዩኝ ጥንካሬዎች",
+        ".highlight-box>p":"ቴክኖሎጂንና ኢኮኖሚን በማጣመር መፍትሄ መገንባት።",
+        ".highlight-item":["ባለብዙ ሞጁል Super App አወቃቀር","የአካባቢ ዲጂታል ክፍያ — Telebirr እና Chapa","ብዙ ቋንቋዎችን የሚደግፉ የትምህርት መፍትሄዎች","የኮምፒውተር ሳይንስና ኢኮኖሚ እውቀት","በምስራቅ አፍሪካ ገበያ ላይ ትኩረት"],
+        ".skill-card h4":["የፕሮግራሚንግ ቋንቋዎች","ድር እና ሞባይል","ዳታቤዝ እና Cloud","ፊንቴክ እና ክፍያዎች","AI እና ውህደቶች","መሳሪያዎች እና የሥራ ሂደት"],
+        ".project-top h3":["Adwa Super App","BD Express","Bekan Learning Bot","Smart Water Management","ADAWA Personal Stylist"],
+        ".project-top p":["ባለብዙ አገልግሎት መድረክ","ባለብዙ ሻጭ ኢ-ኮሜርስ እና ሎጂስቲክስ","ባለብዙ ቋንቋ የTelegram ትምህርት ቦት","የውሃ አስተዳደር ክትትል","በAI የተደገፈ የፋሽን ምክር"],
+        ".project-desc":["Marketplace፣ savings እና health ሞጁሎችን በአንድ የሞባይል ልምድ የሚያገናኝ Super App።","ብዙ ሻጮችን፣ የትዕዛዝ ክትትልን እና የአካባቢ ክፍያን የሚደግፍ የኦንላይን ገበያ።","የኢትዮጵያን የትምህርት ይዘት በብዙ ቋንቋዎች የሚያቀርብ Telegram bot።","QR validation እና analytics በመጠቀም የመሬት ውስጥ ውሃ አጠቃቀምን የሚከታተል ዲጂታል ስርዓት።","በተጠቃሚ ምርጫና ፍላጎት ላይ የተመሠረተ የፋሽን ምክር መተግበሪያ።"],
+        ".edu-univ":["Unity University · አዲስ አበባ","Rift Valley University · ኢትዮጵያ"],
+        ".edu-degree":["BSc ኮምፒውተር ሳይንስ","BA ኢኮኖሚክስ"],
+        ".edu-date":["መስከረም 2022 – አሁን","መስከረም 2022 – አሁን"],
+        ".edu-courses":["የዳታ መዋቅሮች · አልጎሪዝሞች · ሶፍትዌር ምህንድስና · ዳታቤዝ · ሞባይል ልማት · AI","ማይክሮ ኢኮኖሚክስ · ማክሮ ኢኮኖሚክስ · የፋይናንስ ገበያዎች · Econometrics"],
+        ".edu-badge":["በትምህርት ላይ","በትምህርት ላይ"],
+        ".lang-name":["እንግሊዝኛ","አማርኛ","አፋን ኦሮሞ"],
+        ".lang-level":["የሙያ ብቃት","የትውልድ ቋንቋ · ሙሉ ብቃት","የትውልድ ቋንቋ · ሙሉ ብቃት"],
+        ".contact-desc":"ለFreelance ፕሮጀክቶች፣ ትብብር እና internship ክፍት ነኝ። በፊንቴክ፣ Super App አወቃቀር እና ለምስራቅ አፍሪካ ጠቃሚ ቴክኖሎጂ ላይ እሰራለሁ።",
+        ".cc-label":["ኢሜይል","ስልክ","Telegram","WhatsApp","GitHub","LinkedIn"],
+        ".availability":"ለአዳዲስ የሥራ ዕድሎች ዝግጁ ነኝ",
+        ".footer-copy":"© 2026 Dereje Solomon · አዲስ አበባ፣ ኢትዮጵያ"
+      }
+    };
+    const selectedExtra=extraTranslations[lang];
+    if(selectedExtra)Object.entries(selectedExtra).forEach(([selector,value])=>{$(selector).forEach((el,i)=>{const next=Array.isArray(value)?value[i]:value;if(next!==undefined)el.textContent=next;});});
+    document.title=lang==="om"?"Dereje Solomon — Full-Stack Developer | Portfolio":lang==="am"?"Dereje Solomon — የFull-Stack Developer ፖርትፎሊዮ":"Dereje Solomon — Full-Stack Developer & Super App Architect";
+
     try{localStorage.setItem("de-portfolio-lang",lang);}catch{}
     $$(".de-language-switch button").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
   };
