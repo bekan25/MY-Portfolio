@@ -87,7 +87,7 @@
     const selectedExtra=extraTranslations[lang];
     if(selectedExtra) {
       Object.entries(selectedExtra).forEach(([selector,value])=>{
-        $(selector).forEach((el,i)=>{
+        $$(selector).forEach((el,i)=>{
           if(!translatedOriginals.has(el)){translatedOriginals.set(el,el.textContent);translatedElements.add(el);}
           const next=Array.isArray(value)?value[i]:value;
           if(next!==undefined)el.textContent=next;
