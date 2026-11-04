@@ -796,14 +796,14 @@
       </a>
     </div>
     <div class="de-contact-form-wrap">
-      <div class="de-contact-form-copy"><h3>Send me a message</h3><p>Share a project idea, collaboration opportunity or question. Your email application will open with your message prepared. Review it and press Send to contact me.</p></div>
+      <div class="de-contact-form-copy"><h3>Send me a message</h3><p>Share a project idea, collaboration opportunity or question. Your message will be delivered directly to my inbox.</p></div>
       <form id="deContactForm" class="de-contact-form">
         <label>Your name<input name="name" autocomplete="name" maxlength="80" required placeholder="Your full name"></label>
         <label>Your email<input name="email" type="email" autocomplete="email" maxlength="120" required placeholder="you@example.com"></label>
         <label>Subject<input name="subject" maxlength="120" required placeholder="Project inquiry"></label>
         <label class="de-message-field">Message<textarea name="message" rows="5" maxlength="3000" required placeholder="Tell me a little about what you have in mind..."></textarea></label>
-        <button type="submit">Open email draft ↗</button>
-        <p class="de-form-status" id="deContactStatus" role="status" aria-live="polite">Secure preview: your email application opens with the message prepared. Nothing is sent until you press Send in your email app.</p>
+        <button type="submit">Send Message ↗</button>
+        <p class="de-form-status" id="deContactStatus" role="status" aria-live="polite">Your message will be sent securely using EmailJS. Your email address is used only to reply to your message.</p>
       </form>
     </div>
     <div class="availability-row">
@@ -841,20 +841,62 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  (function(){
-    const form=document.getElementById('deContactForm');
-    if(!form)return;
-    form.addEventListener('submit',function(event){
+  (function () {
+    const config = {
+      publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
+      serviceId: "YOUR_EMAILJS_SERVICE_ID",
+      templateId: "YOUR_EMAILJS_TEMPLATE_ID"
+    };
+    const form = document.getElementById("deContactForm");
+    const status = document.getElementById("deContactStatus");
+    const submitButton = form && form.querySelector('button[type="submit"]');
+    if (!form) return;
+
+    const configured = Object.values(config).every(value => value && !value.startsWith("YOUR_"));
+    if (configured && window.emailjs) {
+      window.emailjs.init({ publicKey: config.publicKey });
+    }
+
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
-      if(!form.reportValidity())return;
-      const data=new FormData(form);
-      const subject=String(data.get('subject')||'Portfolio inquiry').trim();
-      const name=String(data.get('name')||'').trim();\n      const email=String(data.get('email')||'').trim();\n      const message=String(data.get('message')||'').trim();\n      const body='Name: '+name+'\\nReply email: '+email+'\\n\\n'+message+'\\n\\nSent from Dereje Solomon’s portfolio.';
-      const mailto='mailto:Derejesolomon363@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-      const status=document.getElementById('deContactStatus');
-      if(status)status.textContent='Your email draft is ready. Review the recipient, subject and message, then press Send in your email application.';
-      window.location.href=mailto;
+      if (!form.reportValidity()) return;
+
+      if (!configured || !window.emailjs) {
+        if (status) status.textContent = "Email delivery is not configured yet. Please add your EmailJS Public Key, Service ID and Template ID.";
+        return;
+      }
+
+      const data = new FormData(form);
+      const templateParams = {
+        from_name: String(data.get("name") || "").trim(),
+        from_email: String(data.get("email") || "").trim(),
+        reply_to: String(data.get("email") || "").trim(),
+        subject: String(data.get("subject") || "Portfolio inquiry").trim(),
+        message: String(data.get("message") || "").trim(),
+        to_email: "Derejesolomon363@gmail.com"
+      };
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+      }
+      if (status) status.textContent = "Sending your message securely…";
+
+      try {
+        await window.emailjs.send(config.serviceId, config.templateId, templateParams);
+        form.reset();
+        if (status) status.textContent = "Message sent successfully. Thank you for reaching out — I’ll get back to you soon.";
+      } catch (error) {
+        console.error("EmailJS contact form error:", error);
+        if (status) status.textContent = "Sorry, your message could not be sent. Please try again or email Derejesolomon363@gmail.com directly.";
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message ↗";
+        }
+      }
     });
   })();
 </script>
