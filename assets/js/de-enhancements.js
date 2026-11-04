@@ -38,7 +38,7 @@
         ".edu-badge":["Barachaa jira","Certificate"],
         ".lang-name":["English","Amharic","Afaan Oromoo"],
         ".lang-level":["Sadarkaa hojii","Afaan dhalootaa · Guutuu","Afaan dhalootaa · Guutuu"],
-        ".contact-desc":"Pirojektoota freelance, tumsa fi internship irratti banaadha. Fintech, Super App architecture fi teeknooloojii Baha Afrikaaf bu'aa qabu irratti nan xiyyeeffadha.",
+        ".contact-desc":"Pirojektoota freelance, internship fi tumsa irratti banaadha. Full-stack web/mobile development, barnoota teeknooloojii fi furmaata AI irratti fedhii qaba.",
         ".cc-label":["Imeelii","Bilbila","Telegram","WhatsApp","GitHub","LinkedIn"],
         ".availability":"Carraa hojii haaraaf banaadha",
         ".de-case-card > p":["Waltajjii addunyaa namoota walqunnamsiisu, uumuu, barachuu fi waliin hojjechuuf gargaaru.","Sirna barnootaa afaanota hedduu barattoota sadarkaa lammaffaa Itoophiyaa deeggaru.","Pirojektii gabaa dijitaalaa bitataa fi gurgurtaa salphisuuf ijaaramaa jiru."],
@@ -69,7 +69,7 @@
         ".edu-badge":["በትምህርት ላይ","Certificate"],
         ".lang-name":["እንግሊዝኛ","አማርኛ","አፋን ኦሮሞ"],
         ".lang-level":["የሙያ ብቃት","የትውልድ ቋንቋ · ሙሉ ብቃት","የትውልድ ቋንቋ · ሙሉ ብቃት"],
-        ".contact-desc":"ለFreelance ፕሮጀክቶች፣ ትብብር እና internship ክፍት ነኝ። በፊንቴክ፣ Super App አወቃቀር እና ለምስራቅ አፍሪካ ጠቃሚ ቴክኖሎጂ ላይ እሰራለሁ።",
+        ".contact-desc":"ለFreelance ፕሮጀክቶች፣ internships እና ትብብር ክፍት ነኝ። በFull-stack web/mobile development፣ ትምህርት ቴክኖሎጂ እና AI መፍትሄዎች ላይ ፍላጎት አለኝ።",
         ".cc-label":["ኢሜይል","ስልክ","Telegram","WhatsApp","GitHub","LinkedIn"],
         ".availability":"ለአዳዲስ የሥራ ዕድሎች ዝግጁ ነኝ",
         ".de-case-card > p":["ሰዎችን ለመገናኘት፣ ለመፍጠር፣ ለመማር እና በጋራ ለመስራት የሚያገናኝ ዓለም አቀፍ መድረክ።","ለኢትዮጵያ የሁለተኛ ደረጃ ተማሪዎች ብዙ ቋንቋ የሚደግፍ የትምህርት ስርዓት።","ለገዢዎችና ሻጮች ቀላል የዲጂታል ገበያ ልምድ የሚያቀርብ በልማት ላይ ያለ ፕሮጀክት።"],
@@ -96,7 +96,7 @@
     } else {
       translatedElements.forEach(el=>{el.textContent=translatedOriginals.get(el);});
     }
-    document.title=lang==="om"?"Dereje Solomon — Full-Stack Developer | Portfolio":lang==="am"?"Dereje Solomon — የFull-Stack Developer ፖርትፎሊዮ":"Dereje Solomon — Full-Stack Developer & Super App Architect";
+    document.title=lang==="om"?"Dereje Solomon — Full-Stack Developer | Portfolio":lang==="am"?"Dereje Solomon — የFull-Stack Developer ፖርትፎሊዮ":"Dereje Solomon — Full-Stack Developer | Writer";
 
     try{localStorage.setItem("de-portfolio-lang",lang);}catch{}
     $$(".de-language-switch button").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
