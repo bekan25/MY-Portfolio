@@ -845,9 +845,9 @@
 <script>
   (function () {
     const config = {
-      publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
-      serviceId: "YOUR_EMAILJS_SERVICE_ID",
-      templateId: "YOUR_EMAILJS_TEMPLATE_ID"
+      publicKey: "s7YKc8uWFrGWOB-WZ",
+      serviceId: "service_eh50186eb",
+      templateId: "__ejs-test-mail-service__"
     };
     const form = document.getElementById("deContactForm");
     const status = document.getElementById("deContactStatus");
@@ -870,12 +870,14 @@
 
       const data = new FormData(form);
       const templateParams = {
+        name: String(data.get("name") || "").trim(),
+        email: String(data.get("email") || "").trim(),
         from_name: String(data.get("name") || "").trim(),
         from_email: String(data.get("email") || "").trim(),
         reply_to: String(data.get("email") || "").trim(),
         subject: String(data.get("subject") || "Portfolio inquiry").trim(),
         message: String(data.get("message") || "").trim(),
-        to_email: "Derejesolomon363@gmail.com"
+        to_email: "derejesolomon363@gmail.com"
       };
 
       if (submitButton) {
