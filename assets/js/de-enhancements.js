@@ -10,6 +10,8 @@
     om:{nav:["Waa'ee Koo","Dandeettii","Pirojektoota","Barnoota","Meeshaalee","Qorannoo Pirojektootaa","Na Qacaruu"],badge:"Carraa Hojiiif Banaadha",heroDesc:"Itoophiyaa fi Baha Afrikaaf furmaata fintech fi e-commerce bu'a qabeessa ijaaruu — beekumsa computer science fi dinagdee walitti fiduun.",viewProjects:"Pirojektoota Ilaali →",getInTouch:"Na Quunnami",aboutLabel:"Ani Eenyu",aboutTitle:"Teeknooloojii hawaasaaf bu'aa qabu ijaaruu",skillsLabel:"Muuxannoo",skillsTitle:"Dandeettii Teeknikaa",projectsLabel:"Hojiiwwan",projectsTitle:"Pirojektoota Filatamoo",educationLabel:"Seenaa Barnootaa",educationTitle:"Barnootaa fi Ragaa",languagesLabel:"Afaanota",languagesTitle:"Afaanota Dubbadhu",contactLabel:"Na Quunnami",contactTitle:"Waan gaarii waliin haa ijaarru",toolkitLabel:"Meeshaalee Developer",toolkitTitle:'Iddoo hojii koo <span class="gold">daawwadhu</span>',terminalTitle:"Terminal Developer",terminalCopy:"Dandeettii, pirojektootaa fi odeeffannoo quunnamtii koo baruuf ajaja barreessi.",githubTitle:"Sochii GitHub",contributions:"Sochii gumaachaa",recentRepos:"Repository yeroo dhihoo haaromfaman",caseLabel:"Ibsa pirojektootaa",caseTitle:'Qorannoo <span class="gold">pirojektootaa</span>',caseIntro:"Rakkoo, ijaarsa sirnaa fi murtoo teeknikaa pirojektoota filatamoo ilaali.",askAssistant:"Waa'ee hojii koo gaafadhu"},
     am:{nav:["ስለ እኔ","ክህሎቶች","ፕሮጀክቶች","ትምህርት","መሣሪያዎች","የፕሮጀክት ጥናቶች","አግኙኝ"],badge:"ለሥራ ዕድሎች ዝግጁ ነኝ",heroDesc:"ለኢትዮጵያና ለምስራቅ አፍሪካ ተፅዕኖ ያላቸውን የፊንቴክና የኢ-ኮሜርስ መድረኮችን እገነባለሁ።",viewProjects:"ፕሮጀክቶችን ይመልከቱ →",getInTouch:"ያግኙኝ",aboutLabel:"ስለ እኔ",aboutTitle:"ለማህበረሰብ ጠቃሚ ቴክኖሎጂ መገንባት",skillsLabel:"ብቃት",skillsTitle:"ቴክኒካዊ ክህሎቶች",projectsLabel:"ሥራዎች",projectsTitle:"የተመረጡ ፕሮጀክቶች",educationLabel:"የትምህርት ዳራ",educationTitle:"ትምህርት እና ማረጋገጫዎች",languagesLabel:"ግንኙነት",languagesTitle:"የምናገራቸው ቋንቋዎች",contactLabel:"ያግኙኝ",contactTitle:"በጋራ ጥሩ ነገር እንገንባ",toolkitLabel:"የገንቢ መሣሪያዎች",toolkitTitle:'የሥራ ቦታዬን <span class="gold">ይመልከቱ</span>',terminalTitle:"የገንቢ Terminal",terminalCopy:"ስለ ክህሎቶቼ፣ ፕሮጀክቶቼ እና አድራሻዬ ለማወቅ ትዕዛዝ ያስገቡ።",githubTitle:"የGitHub እንቅስቃሴ",contributions:"የአስተዋጽኦ እንቅስቃሴ",recentRepos:"በቅርቡ የተዘመኑ ሪፖዚቶሪዎች",caseLabel:"የፕሮጀክት ጥናቶች",caseTitle:'የፕሮጀክት <span class="gold">ዝርዝር ጥናት</span>',caseIntro:"የተመረጡ ሥራዎችን ችግር፣ አወቃቀር እና የምህንድስና ውሳኔዎች ይመልከቱ።",askAssistant:"ስለ ሥራዬ ይጠይቁ"}
   };
+  const translatedOriginals = new WeakMap();
+  const translatedElements = new Set();
   const setLanguage = (lang) => {
     const t = translations[lang] || translations.en;
     document.documentElement.lang = lang === "om" ? "om" : lang;
@@ -65,7 +67,17 @@
       }
     };
     const selectedExtra=extraTranslations[lang];
-    if(selectedExtra)Object.entries(selectedExtra).forEach(([selector,value])=>{$(selector).forEach((el,i)=>{const next=Array.isArray(value)?value[i]:value;if(next!==undefined)el.textContent=next;});});
+    if(selectedExtra) {
+      Object.entries(selectedExtra).forEach(([selector,value])=>{
+        $(selector).forEach((el,i)=>{
+          if(!translatedOriginals.has(el)){translatedOriginals.set(el,el.textContent);translatedElements.add(el);}
+          const next=Array.isArray(value)?value[i]:value;
+          if(next!==undefined)el.textContent=next;
+        });
+      });
+    } else {
+      translatedElements.forEach(el=>{el.textContent=translatedOriginals.get(el);});
+    }
     document.title=lang==="om"?"Dereje Solomon — Full-Stack Developer | Portfolio":lang==="am"?"Dereje Solomon — የFull-Stack Developer ፖርትፎሊዮ":"Dereje Solomon — Full-Stack Developer & Super App Architect";
 
     try{localStorage.setItem("de-portfolio-lang",lang);}catch{}
@@ -96,7 +108,14 @@
   const cacheWrite=(key,data)=>{try{localStorage.setItem(key,JSON.stringify({time:Date.now(),data}));}catch{}};
   async function getJson(url,timeout=6500){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),timeout);try{const r=await fetch(url,{headers:{Accept:"application/vnd.github+json"},signal:controller.signal});if(!r.ok)throw new Error("HTTP "+r.status);return await r.json();}finally{clearTimeout(timer);}}
   function renderStats(user){githubStats.innerHTML=[["Public repos",user.public_repos],["Followers",user.followers],["Following",user.following]].map(([l,v])=>'<div class="de-stat"><strong>'+safeText(v)+'</strong><span>'+l+'</span></div>').join("");}
-  function renderRepos(items){if(!items?.length){githubRepos.innerHTML='<p class="de-muted">No repository details available right now. <a href="https://github.com/bekan25">View GitHub profile</a>.</p>';return;}githubRepos.innerHTML=items.slice(0,5).map(r=>'<a class="de-repo" href="'+safeText(r.html_url)+'" target="_blank" rel="noopener noreferrer"><b>'+safeText(r.name)+'</b><span>★ '+safeText(r.stargazers_count||0)+'</span></a>').join("");}
+  function renderRepos(items){
+    if(!Array.isArray(items)||!items.length){githubRepos.innerHTML='<p class="de-muted">No repository details available right now. <a href="https://github.com/bekan25" target="_blank" rel="noopener noreferrer">View GitHub profile</a>.</p>';return;}
+    githubRepos.innerHTML=items.slice(0,5).map(r=>{
+      let href="https://github.com/bekan25";
+      try{const candidate=new URL(r.html_url);if(candidate.protocol==="https:"&&candidate.hostname==="github.com")href=candidate.href;}catch{}
+      return '<a class="de-repo" href="'+safeText(href)+'" target="_blank" rel="noopener noreferrer"><b>'+safeText(r.name)+'</b><span>★ '+safeText(r.stargazers_count||0)+'</span></a>';
+    }).join("");
+  }
   function renderContribution(days){if(!graph)return;const list=Array.isArray(days)?days:[];const normalized=list.slice(-364);graph.innerHTML=normalized.map(d=>{const n=Number(d.count)||0;const level=n===0?0:n<3?1:n<6?2:n<10?3:4;return '<span class="de-day l'+level+'" title="'+safeText(d.date)+': '+n+' contributions"></span>';}).join("");if(graphStatus)graphStatus.textContent=normalized.length?"Last 52 weeks · public contribution data":"Contribution history unavailable";if(!normalized.length)graph.innerHTML='<span class="de-muted">Contribution graph unavailable. Your GitHub profile remains available above.</span>';}
   async function loadGithub(){
     const cachedUser=cacheRead("de-gh-user"),cachedRepos=cacheRead("de-gh-repos"),cachedDays=cacheRead("de-gh-days");
