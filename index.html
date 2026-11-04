@@ -796,14 +796,14 @@
       </a>
     </div>
     <div class="de-contact-form-wrap">
-      <div class="de-contact-form-copy"><h3>Send me a message</h3><p>Share a project idea, collaboration opportunity or question. Your email app will open with the message ready to send.</p></div>
+      <div class="de-contact-form-copy"><h3>Send me a message</h3><p>Share a project idea, collaboration opportunity or question. Your email application will open with your message prepared. Review it and press Send to contact me.</p></div>
       <form id="deContactForm" class="de-contact-form">
         <label>Your name<input name="name" autocomplete="name" maxlength="80" required placeholder="Your full name"></label>
         <label>Your email<input name="email" type="email" autocomplete="email" maxlength="120" required placeholder="you@example.com"></label>
         <label>Subject<input name="subject" maxlength="120" required placeholder="Project inquiry"></label>
         <label class="de-message-field">Message<textarea name="message" rows="5" maxlength="3000" required placeholder="Tell me a little about what you have in mind..."></textarea></label>
-        <button type="submit">Prepare email message ↗</button>
-        <p class="de-form-status" id="deContactStatus" role="status" aria-live="polite">This form opens your email application; it does not send or store messages on this website.</p>
+        <button type="submit">Open email draft ↗</button>
+        <p class="de-form-status" id="deContactStatus" role="status" aria-live="polite">Secure preview: your email application opens with the message prepared. Nothing is sent until you press Send in your email app.</p>
       </form>
     </div>
     <div class="availability-row">
@@ -850,10 +850,10 @@
       if(!form.reportValidity())return;
       const data=new FormData(form);
       const subject=String(data.get('subject')||'Portfolio inquiry').trim();
-      const body='Name: '+String(data.get('name')||'').trim()+'\\nEmail: '+String(data.get('email')||'').trim()+'\\n\\n'+String(data.get('message')||'').trim();
+      const name=String(data.get('name')||'').trim();\n      const email=String(data.get('email')||'').trim();\n      const message=String(data.get('message')||'').trim();\n      const body='Name: '+name+'\\nReply email: '+email+'\\n\\n'+message+'\\n\\nSent from Dereje Solomon’s portfolio.';
       const mailto='mailto:Derejesolomon363@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
       const status=document.getElementById('deContactStatus');
-      if(status)status.textContent='Opening your email application. Please review and press Send there.';
+      if(status)status.textContent='Your email draft is ready. Review the recipient, subject and message, then press Send in your email application.';
       window.location.href=mailto;
     });
   })();
