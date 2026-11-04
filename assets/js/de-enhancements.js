@@ -165,6 +165,20 @@
   $$(".de-assistant-suggestions button").forEach(b=>b.addEventListener("click",()=>ask(b.dataset.ask)));
 
   const backTop=$(".de-back-top");window.addEventListener("scroll",()=>backTop?.classList.toggle("visible",window.scrollY>500),{passive:true});
-  $("#hamburger")?.addEventListener("click",()=>$("#hamburger")?.setAttribute("aria-expanded",String($("#navLinks")?.classList.contains("open"))));
+  const hamburger=$("#hamburger"), navLinks=$("#navLinks");
+  hamburger?.addEventListener("click",()=>hamburger.setAttribute("aria-expanded",String(navLinks?.classList.contains("open"))));
+  navLinks?.addEventListener("click",event=>{
+    if(event.target.closest("a")){
+      navLinks.classList.remove("open");
+      hamburger?.setAttribute("aria-expanded","false");
+    }
+  });
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"&&navLinks?.classList.contains("open")){
+      navLinks.classList.remove("open");
+      hamburger?.setAttribute("aria-expanded","false");
+      hamburger?.focus();
+    }
+  });
   if("serviceWorker" in navigator && location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 })();
