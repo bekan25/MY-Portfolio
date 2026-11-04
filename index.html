@@ -533,6 +533,7 @@
       <p class="hero-desc">Building impactful fintech and e-commerce platforms for Ethiopia and East Africa — where deep computer science meets economic understanding.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="./resume.html" class="btn-secondary">Download CV ↗</a>
         <a href="#contact" class="btn-secondary">Get In Touch</a>
       </div>
     </div>
@@ -900,7 +901,7 @@
         <div class="cc-label">Phone</div>
         <div class="cc-val">+251 92 248 1727</div>
       </a>
-      <a href="https://t.me/bekan2025" target="_blank" rel="noopener" class="contact-card">
+      <a href="https://t.me/counqer1777" target="_blank" rel="noopener" class="contact-card">
         <div class="cc-icon">TG</div>
         <div class="cc-label">Telegram</div>
         <div class="cc-val">@counqer1777</div>
@@ -920,6 +921,17 @@
         <div class="cc-label">LinkedIn</div>
         <div class="cc-val">Dereje Solomon</div>
       </a>
+    </div>
+    <div class="de-contact-form-wrap">
+      <div class="de-contact-form-copy"><h3>Send me a message</h3><p>Share a project idea, collaboration opportunity or question. Your email app will open with the message ready to send.</p></div>
+      <form id="deContactForm" class="de-contact-form">
+        <label>Your name<input name="name" autocomplete="name" maxlength="80" required placeholder="Your full name"></label>
+        <label>Your email<input name="email" type="email" autocomplete="email" maxlength="120" required placeholder="you@example.com"></label>
+        <label>Subject<input name="subject" maxlength="120" required placeholder="Project inquiry"></label>
+        <label class="de-message-field">Message<textarea name="message" rows="5" maxlength="3000" required placeholder="Tell me a little about what you have in mind..."></textarea></label>
+        <button type="submit">Prepare email message ↗</button>
+        <p class="de-form-status" id="deContactStatus" role="status" aria-live="polite">This form opens your email application; it does not send or store messages on this website.</p>
+      </form>
     </div>
     <div class="availability-row">
       <div class="availability"><div class="avail-dot"></div>Open to new opportunities</div>
@@ -955,6 +967,23 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+<script>
+  (function(){
+    const form=document.getElementById('deContactForm');
+    if(!form)return;
+    form.addEventListener('submit',function(event){
+      event.preventDefault();
+      if(!form.reportValidity())return;
+      const data=new FormData(form);
+      const subject=String(data.get('subject')||'Portfolio inquiry').trim();
+      const body='Name: '+String(data.get('name')||'').trim()+'\\nEmail: '+String(data.get('email')||'').trim()+'\\n\\n'+String(data.get('message')||'').trim();
+      const mailto='mailto:Derejesolomon363@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      const status=document.getElementById('deContactStatus');
+      if(status)status.textContent='Opening your email application. Please review and press Send there.';
+      window.location.href=mailto;
+    });
+  })();
 </script>
 <script src="assets/js/de-enhancements.js" defer></script>
 </body>
